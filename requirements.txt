@@ -1,0 +1,5 @@
+flask
+pymysql
+pyodbc
+python-dotenv
+cryptography
