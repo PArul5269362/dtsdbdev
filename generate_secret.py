@@ -1,3 +1,6 @@
+"""
+Example of how to generate a secret key and save it to a file.
+"""
 import os
 from cryptography.fernet import Fernet
 # Generate a new key
