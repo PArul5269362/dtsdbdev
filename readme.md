@@ -1,7 +1,10 @@
 # Database Development Assignment
 
-## Getting Started
+## Requirements
+Python 3.11
+MySQL 8.0
 
+## Getting Started
 Open this root folder with VSCode
 
 Then either 
@@ -17,4 +20,10 @@ pip install -r requirements.txt
 ```
 
 ## Running App
+
+### Python
 You should be able to open `app.py` and run it directly from VSCode
+
+### MySQL
+
+
