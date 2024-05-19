@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}WheelEase Home{% endblock %}
+
+{% block header %}Welcome to WheelEase{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <!-- SVG Banner -->
+    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="WheelEase Banner" class="img-fluid">
+    <button type="button" class="btn btn-primary btn-lg mt-3" onclick="window.location.href='{{ url_for('rent_vehicle') }}'">Rent a Vehicle</button>
+    <button type="button" class="btn btn-primary btn-lg mt-3" onclick="window.location.href='{{ url_for('list_reports') }}'">List Reports</button>
+</div>
+{% endblock %}

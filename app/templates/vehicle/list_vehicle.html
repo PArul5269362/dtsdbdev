@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} Vehicle Details{% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+
+<!-- list current vehicle details -->
+ <div class="container mt-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Registration</th>
+                    <th>Manufacturer</th>
+                    <th>Model</th>
+                    <th>Mileage</th>
+                    <th>Availability</th>
+                    <th>Branch</th>
+                    <th>Daily Rate Category</th>
+                    <th>Daily Rate Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ vehicle.vehicle_category }}</td>
+                    <td>{{ vehicle.registration }}</td>
+                    <td>{{ vehicle.manufacturer }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>{{ vehicle.mileage }}</td>
+                    <td>{{ vehicle.availability }}</td>
+                    <td>{{ vehicle.branch_id }}</td>
+                    <td>{{ vehicle.daily_rate_id }}</td>
+                    <td>{{ vehicle.daily_rate_price }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-primary btn-lg mt-3" onclick="window.location.href='{{ url_for('vehicles') }}'"> Go Back </button>
+        <button type="button" class="btn btn-primary btn-lg mt-3" onclick="window.location.href='{{ url_for('edit_vehicle', vehicle_id=vehicle.registration) }}'">
+            Edit
+        </button>
+            <!-- Send post request to delete vehicle then alert user tha vehicle is deleted before redirect-->
+        <form method="POST" action="{{ url_for('delete_vehicle', vehicle_id=vehicle.registration) }}">
+                <button type="submit" class="btn btn-primary btn-lg mt-3">Delete</button>
+        </form>
+    </div>
+ 
+{% endblock %}

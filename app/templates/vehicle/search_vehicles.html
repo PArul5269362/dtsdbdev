@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Search Vehicles{% endblock %}
+
+{% block header %}Search Vehicles{% endblock %}
+
+{% block content %}
+
+<!-- Build form to list search parameters, fetching data from api endpoints-->
+<form action="{{ url_for('search') }}" method="post">
+    <div class="form-group
+    <label for="category">Category</label>
+    <select class="form-control" id="category" name="category">
+        <option value="">All</option>
+        {% for item in categories %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+    </div>
+    <div class="form-group">
+        <label for="manufacturer">Manufacturer</label>
+        <select class="form-control" id="manufacturer" name="manufacturer">
+        <option value="">All</option>
+            {% for item in manufacturers %}
+                <option value="{{ item }}">{{ item }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="model">Model</label>
+        <select class="form-control" id="model" name="model">
+        <option value="">All</option>
+            {% for item in models %}
+                <option value="{{ item }}">{{ item }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+{% endblock %}

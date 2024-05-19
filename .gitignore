@@ -1,1 +1,8 @@
 #.env
+.idea/
+.vscode/
+app/.env
+app/.venv
+app/__pycache__/
+app/dal/__pycache__/
+*.pyc

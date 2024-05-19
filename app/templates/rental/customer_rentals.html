@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Customer Rental History{% endblock %}
+
+{% block header %} {{ customer.name }} Rental History {% endblock %}
+
+{% block content %}
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Vehicle ID</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Insurance ID</th>
+                <th>Driver ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rental in rentals %}
+            <tr>
+                {% for field in rental %}
+                <td>{{ field }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary btn-lg mt-3" onclick="window.location.href='{{ url_for('rent_vehicle') }}'"> Rent a Vehicle </button>
+
+{% endblock %}

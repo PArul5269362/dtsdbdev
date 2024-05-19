@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}WheelEase Vehicle Rental{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">WheelEase</a>
+        <span class="navbar-text">
+            Vehicle Rental
+        </span>
+    </nav>
+    <!-- ... (same as before) ... -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                        Manage
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"  href="{{ url_for('vehicles') }}">Vehicles</a>
+                        <a class="dropdown-item"  href="{{ url_for('customers') }}">Customers</a>
+                        <a class="dropdown-item"  href="{{ url_for('rentals') }}">Rentals</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                        Reports
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="reportsDropdown">
+                        {% for report in reports %}
+                        <a class="dropdown-item" href="{{ url_for('report', concise_name=report.concise_name) }}">{{ report.full_name }}</a>
+                        {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+<!-- ... -->
+<div class="container">
+        <h1 class="mt-4 mb-4">{% block header %}{% endblock %}</h1>
+        {% block content %}{% endblock %}
+    </div>
+   <!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</main>
+<footer>
+    
+</footer>
+</body>
+</html>

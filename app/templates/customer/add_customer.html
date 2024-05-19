@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %} Add Customer {% endblock %}
+
+{% block header %} New Customer{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('add_customer') }}">
+    <div class="form-group
+    ">
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" id="first_name" name="first_name" required>
+    </div>
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" name="last_name" required>
+    </div>
+    <div class="form-group">
+        <label for="address_line_one">Address Line 1</label>
+        <input type="text" class="form-control" id="address_line_one" name="address_line_one" required>
+    </div>
+    <div class="form-group">
+        <label for="address_line_two">Address Line 2</label>
+        <input type="text" class="form-control" id="address_line_two" name="address_line_two">
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" name="city" required>
+    </div>
+    <div class="form-group">
+        <label for="postcode">Postcode</label>
+        <input type="text" class="form-control" id="postcode" name="postcode" required>
+    </div>
+    <div class="form-group">
+        <label for="phone_number">Phone Number</label>
+        <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="license_number">License Number</label>
+        <input type="text" class="form-control" id="license_number" name="license_number">
+    </div>
+    <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+
+<button type="button" class="btn btn-primary btn-lg mt-3" onclick="window.location.href='{{ url_for('customers') }}'"> Go Back </button>
+
+
+{% endblock %}
+
