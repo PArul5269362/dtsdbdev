@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Branch{% endblock %}
+
+{% block header %}Add New Branch{% endblock %}
+
+{% block content %}
+    <form id="addBranchForm" method="post">
+        <div class="form-group">
+            <label for="address_line_one">Address Line 1:</label>
+            <input type="text" id="registration" name="registration" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="address_line_two">Address Line 2:</label>
+            <input type="text" id="model_id" name="model_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="mileage" name="mileage" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="post_code">Post Code:</label>
+            <input type="text" id="branch_id" name="branch_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="phone_number">Daily Rate ID:</label>
+            <input type="text" id="daily_rate_id" name="daily_rate_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="daily_rate_id" name="daily_rate_id" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+
+
+    <script>
+        // Handle form submission
+        document.getElementById('addBranchForm').addEventListener('submit', function(event) {
+            
+            const formData = new FormData(this);
+            
+            fetch('/branch/add', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/branches';
+                } else {
+                    alert( { error_message } );
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
+{% endblock %}

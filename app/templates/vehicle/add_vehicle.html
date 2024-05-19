@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Vehicle{% endblock %}
+
+{% block header %}Add New Vehicle{% endblock %}
+
+{% block content %}
+    <form id="addVehicleForm" method="post">
+        <div class="form-group">
+            <label for="registration">Registration:</label>
+            <input type="text" id="registration" name="registration" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="model_id">Model ID:</label>
+            <input type="text" id="model_id" name="model_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="mileage">Mileage:</label>
+            <input type="text" id="mileage" name="mileage" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="branch_id">Branch ID:</label>
+            <input type="text" id="branch_id" name="branch_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="daily_rate_id">Daily Rate ID:</label>
+            <input type="text" id="daily_rate_id" name="daily_rate_id" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+
+    <script>
+        // Handle form submission
+        document.getElementById('addVehicleForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Serialize form data
+            const formData = new FormData(this);
+            
+            // Make a POST request to the add_vehicle route
+            fetch('/vehicle/add', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect to the vehicles page if the request is successful
+                    window.location.href = '/vehicles';
+                } else {
+                    // Display an error message if the request fails
+                    alert( { error_message } );
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
+
+<button type="button" class="btn btn-primary btn-lg mt-3" onclick="window.location.href='{{ url_for('vehicles') }}'"> Go back to Vehicles! </button>
+{% endblock %}

@@ -15,15 +15,15 @@ reports_list = [
         "details": "Include the date, Category Name, and Count of Rentals."
     },
     {
-        "concise_name": "utilization_rate",
-        "full_name": "Vehicle Utilization Rate",
-        "description": "Calculate the utilization rate of vehicles over a period of your choice. The utilization rate is defined as the number of days a vehicle is rented divided by the total number of days in the period.",
+        "concise_name": "utilisation_rate",
+        "full_name": "Vehicle Utilisation Rate",
+        "description": "Calculate the utilisation rate of vehicles over a period of your choice. The utilisation rate is defined as the number of days a vehicle is rented divided by the total number of days in the period.",
         "details": "Include VehicleID, Manufacturer, Model, UtilizationRate. Order the results by UtilizationRate descending."
     },
     {
         "concise_name": "loyalty_report",
         "full_name": "Customer Loyalty Report",
-        "description": "Identify returning customers who have rented vehicles more than a certain number of times (of your choosing) within the last year. This report is useful for marketing purposes, such as targeting loyal customers with special offers.",
+        "description": "Identify returning customers who have rented vehicles more than once within the last year. This report is useful for marketing purposes, such as targeting loyal customers with special offers.",
         "details": "Include CustomerID, FirstName, LastName, Email, and Total Rentals. Order by Total Rentals descending."
     },
     {

@@ -26,4 +26,8 @@ You should be able to open `app.py` and run it directly from VSCode
 
 ### MySQL
 
+A Docker Compose file is given to start an image in docker, however creating the MySQL database manually will work too. 
+
+There are provided scripts to create and add data to the database, this can be done though MySQL workbench if the docker compose file is not used.
+
 

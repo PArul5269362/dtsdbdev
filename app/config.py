@@ -14,6 +14,11 @@ class ConfigBase:
     SECRET_KEY = os.getenv('SECRET_KEY', os.urandom(16))
     DEBUG = False
     TESTING = False
+    DB_HOST = os.getenv('DB_HOST')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_NAME = os.getenv('DB_NAME')
+
     # Add more configuration options here like database connection strings etc.
     # Ideally, you would store these in environment variables and load them here
     # For example, to load a database connection string from an environment variable:

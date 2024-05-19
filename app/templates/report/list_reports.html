@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}WheelEase Reports{% endblock %}
+
+{% block header %}WheelEase Reports{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        {% for report in reports %}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <a href="{{ url_for('report', concise_name=report.concise_name) }}" class="card-link">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ report.full_name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ report.concise_name }}</h6>
+                        <p class="card-text">{{ report.description }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

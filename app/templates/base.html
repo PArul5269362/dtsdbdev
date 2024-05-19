@@ -26,17 +26,18 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item"  href="{{ url_for('vehicles') }}">Vehicles</a>
+                        <a class="dropdown-item"  href="{{ url_for('customers') }}">Customers</a>
+                        <a class="dropdown-item"  href="{{ url_for('rentals') }}">Rentals</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                         Reports
                     </a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" aria-labelledby="reportsDropdown">
                         {% for report in reports %}
-                        <a class="dropdown-item" href="{{ url_for('report', report_id=loop.index0) }}">{{report["full_name"]}}</a>
+                        <a class="dropdown-item" href="{{ url_for('report', concise_name=report.concise_name) }}">{{ report.full_name }}</a>
                         {% endfor %}
-                    </div>
                 </li>
             </ul>
         </div>

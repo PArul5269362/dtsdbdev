@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Rent a Vehicle{% endblock %}
+
+{% block header %}Rent a Vehicle{% endblock %}
+
+{% block content %}
+
+<form id="createRentalForm" method="POST">
+    <div class="form-group
+    ">
+        <label for="customer_id">Customer ID</label>
+        <input type="text" class="form-control" id="customer_id" name="customer_id" required>
+    </div>
+    <div class="form-group">
+        <label for="registration">Vehicle ID</label>
+        <input type="text" class="form-control" id="registration" name="registration" required>
+    </div>
+    <div class="form-group">
+        <label for="start_date">Start Date</label>
+        <input type="date" class="form-control" id="start_date" name="start_date" required>
+    </div>
+    <div class="form-group">
+        <label for="end_date">End Date</label>
+        <input type="date" class="form-control" id="end_date" name="end_date">
+    </div>
+    <div class="form-group">
+        <label for="insurance_id">Insurance ID</label>
+        <input type="text" class="form-control" id="insurance_id" name="insurance_id" required>
+    </div>
+    <div class="form-group">
+        <label for="driver_id">Driver ID</label>
+        <input type="text" class="form-control" id="driver_id" name="driver_id" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Rental</button>
+</form>
+
+<script>
+        // Handle form submission
+        document.getElementById('createRentalForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Serialize form data
+            const formData = new FormData(this);
+            
+            // Make a POST request to the add_vehicle route
+            fetch('/rental/new', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect to the vehicles page if the request is successful
+                    window.location.href = '/rentals';
+                } else {
+                    // Display an error message if the request fails
+                    alert( { error_message } );
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
+{% endblock %}

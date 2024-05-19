@@ -1,0 +1,26 @@
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy the current directory contents into the container at /usr/src/app
+COPY . .
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
+
+# Define environment variable
+ENV FLASK_APP=app
+ENV SECRET_KEY = '674b377a615a56576d71747371476e496d774e783849642d674b4a4947413031395244397178595f6450453d'
+ENV APP_MODE = 'development'
+ENV FLASK_ENV = 'development'
+ENV DB_HOST = 'localhost'
+ENV DB_USER = 'application'
+ENV DB_PASSWORD = 'application'
+ENV DB_NAME = 'wheelease'
+
+# Run the command to start the Flask app
+CMD ["flask", "run", "--host=0.0.0.0"]
